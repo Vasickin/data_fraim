@@ -7,3 +7,8 @@ random.shuffle(lst)
 data = pd.DataFrame({'whoAmI':lst})
 
 one_hot_encoded = pd.concat([pd.Series(1, index=data.index, name='whoAmI_'+i) if i == data['whoAmI'].iloc[j] else pd.Series(0, index=data.index, name='whoAmI_'+i) for j, i in enumerate(set(data['whoAmI']))], axis=1)
+
+
+data_one_hot = pd.concat([data, one_hot_encoded], axis=1)
+
+data_one_hot.head()
